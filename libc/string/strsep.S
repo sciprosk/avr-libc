@@ -67,7 +67,7 @@ _U(strsep):
 	brne	3f
 	X_movw	XL, r0			; __zero_reg__ is r1
 	rjmp	4f
-  ; OK, delimeter symbol is founded
+  ; OK, delimiter symbol is founded
 3:	st	-X, __zero_reg__	; replace by '\0'
 	adiw	XL, 1			; address of next token
   ; save result to *sp and return
