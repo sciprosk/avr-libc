@@ -128,7 +128,7 @@ int main ()
     CHECK ("a", "", -1, -1);
     CHECK ("12345678", "", -1, -1);
 
-    /* No delimiter symbols are founded	*/
+    /* No delimiter symbols are found	*/
     CHECK ("\tabc", " ", -1, -1);
     CHECK ("THE QUICK BROWN FOX", "thequickbrownfox", -1, -1);
 

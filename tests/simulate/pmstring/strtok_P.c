@@ -116,7 +116,7 @@ int main ()
     CHECK ("dcba", "", 0, "dcba");
     CHECK0 ("", -1, "");
 
-    /* No delimiter symbols are founded.	*/
+    /* No delimiter symbols are found.	*/
 
     CHECK ("\t", " ", 0, "\t");
     CHECK0 (" ", -1, "");
