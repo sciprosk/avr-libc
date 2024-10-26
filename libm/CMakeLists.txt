@@ -1,0 +1,84 @@
+add_library(m STATIC
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/mulsf3.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fixunssfsi.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fma.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/hypot.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/lrint.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_norm2.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_pscB.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/isinf.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/floor.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/floatundisf.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_mpack.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_sinus.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fixsfdi.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/inverse.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fmax.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/cbrt.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/divsf3x.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/mulsf3x.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_arccos.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_trunc.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_rempio2.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/tanh.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/exp.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fmod.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_inf.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/modf.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/asin.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/trunc.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/sinh.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_powser.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/negsf2.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/cosh.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_powsodd.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/lround.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/tan.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fmin.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/isfinite.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/copysign.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_zero.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fdim.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/cmpsf2.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/pow.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_nan.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/atan2.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/log.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/divsf3.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/log10.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/square.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/ceil.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/floatdisf.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_pscA.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/acos.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_mintl.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_round.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/isnan.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/round.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/sqrt.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_cmp.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/atan.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/signbit.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/sin.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/frexp.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fixsfsi.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/addsf3.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/unordsf2.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/floatsisf.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_split3.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/ldexp.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/gesf2.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/addsf3x.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/fp_negdi.S
+    ${CMAKE_CURRENT_LIST_DIR}/fplib/cos.S
+)
+
+target_include_directories(m PRIVATE
+    ${CMAKE_SOURCE_DIR}/common
+    ${CMAKE_SOURCE_DIR}/include
+)
+
+target_compile_options(m PRIVATE
+	"-x" "assembler-with-cpp"
+)
+
