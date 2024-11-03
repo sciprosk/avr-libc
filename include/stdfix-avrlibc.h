@@ -46,4 +46,30 @@
 
 /* Room for AVR-LibC specific extensions */
 
+/* 7.18a.6.8 Numeric conversion functions */
+
+extern short fract strtofxhr(const char* restrict nptr, char ** restrict endptr);
+
+extern fract strtofxr(const char * restrict nptr, char ** restrict endptr);
+
+extern long fract strtofxlr(const char * restrict nptr, char ** restrict endptr);
+
+extern short accum strtofxhk(const char * restrict nptr, char ** restrict endptr);
+
+extern accum strtofxk(const char * restrict nptr, char ** restrict endptr);
+
+extern long accum strtofxlk(const char * restrict nptr, char ** restrict endptr);
+
+extern unsigned short fract strtofxuhr(const char* restrict nptr, char ** restrict endptr);
+
+extern unsigned fract strtofxur(const char * restrict nptr, char ** restrict endptr);
+
+extern unsigned long fract strtofxulr(const char * restrict nptr, char ** restrict endptr);
+
+extern unsigned short accum strtofxuhk(const char * restrict nptr, char ** restrict endptr);
+
+extern unsigned accum strtofxuk(const char * restrict nptr, char ** restrict endptr);
+
+extern unsigned long accum strtofxulk(const char * restrict nptr, char ** restrict endptr);
+
 #endif /* _STDFIX_AVRLIBC_H */
