@@ -72,11 +72,25 @@ __ATTR_CONST__
 extern fract rdivi (int num, int denom);
 
 /*
- * The lrdivi() function computes the value of \c num/denom and returns the
- * result of the long fract type.
+ * The lrdivi() function computes the value \c num/denom and returns the
+ * result of the \c long \c fract type.
  */
 __ATTR_CONST__
 extern long fract lrdivi (long int num, long int denom);
+
+/*
+ * The kdivi() function computes the value \c num/denom and returns the
+ * result of the \c accum type.
+ */
+__ATTR_CONST__
+extern accum kdivi (int num, int denom);
+
+/*
+ * The lkdivi() function computes the value \c num/denom and returns the
+ * result of the \c long \c accum type.
+ */
+__ATTR_CONST__
+extern long accum lkdivi (long int num, long int denom);
 
 /*
  * The urdivi() function computes the value \c num/denom and returns the
@@ -86,12 +100,27 @@ __ATTR_CONST__
 extern unsigned fract urdivi (unsigned int num, unsigned int denom);
 
 /*
- * The ulrdivi() function computes the value of \c num/denom and returns the
- * result of the unsigned long fract type.
+ * The ulrdivi() function computes the value \c num/denom and returns the
+ * result of the \c unsigned \c long fract type.
  */
 __ATTR_CONST__
 extern unsigned long fract
 ulrdivi (unsigned long int num, unsigned long int denom);
+
+/*
+ * The ukdivi() function computes the value \c num/denom and returns the
+ * result of the \c unsigned \c accum type.
+ */
+__ATTR_CONST__
+extern unsigned accum ukdivi (unsigned int num, unsigned int denom);
+
+/*
+ * The ulkdivi() function computes the value of \c num/denom and returns the
+ * result of the \c usigned \c long \c accum type.
+ */
+__ATTR_CONST__
+extern unsigned long accum
+ulkdivi (unsigned long int num, unsigned long int denom);
 
 #ifdef __cplusplus
 }
