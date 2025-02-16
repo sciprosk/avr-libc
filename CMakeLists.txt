@@ -8,7 +8,7 @@ project(avr-libc
 )
 
 set(ASM_OPTIONS "-x assembler-with-cpp")
-set(CMAKE_ASM_FLAGS "${CFLAGS} ${ASM_OPTIONS} ")
+set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} ${ASM_OPTIONS}")
 
 add_subdirectory(libc)
 add_subdirectory(libm)
