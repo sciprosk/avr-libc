@@ -261,7 +261,7 @@ AM_CONDITIONAL(HAS_DEV_LIB, [test x$enable_device_lib = xtrue])
 dnl TODO: Check for various tools used to build the documentation. If anything
 dnl is missing, don't build the docs by default.
 
-dnl Disable building of dox by default since it they may not build properly on
+dnl Disable building of dox by default since they may not build properly on
 dnl all systems. This isn't optimal, but how do we work around the user not
 dnl having fig2dev and still build all the formats?
 
@@ -556,6 +556,12 @@ dnl Same replacements as performed by mlib-gen.py::to_ident().
 		| sed -e 's:-:_:g' \
 		`
       eval "DEVLIST_${ident}=\"\${DEVLIST_${ident}} $1\""
+      upper=$(echo "$1" | tr a-z A-Z)
+      defd="defined(__AVR_${upper}__)"
+      AS_CASE([$1],
+	      [[avr*[0-9]d*]], [COND_DEFINED_Dx="${COND_DEFINED_Dx} || ${defd}"],
+	      [[avr*[0-9]e*]], [COND_DEFINED_Ex="${COND_DEFINED_Ex} || ${defd}"],
+	      [])
     else
       MULTIDIR_$1=
       AC_MSG_RESULT(no)
@@ -668,9 +674,15 @@ AM_CONDITIONAL(HAS_avr1, true)
 DIR_avr1=avr1
 AC_SUBST(DIR_avr1)
 
+COND_DEFINED_Dx="0"
+COND_DEFINED_Ex="0"
+
 m4_include([devices.m4])
 
-dnl The following include must preceed multilib.m4 and is only
+AC_SUBST(COND_DEFINED_Dx)
+AC_SUBST(COND_DEFINED_Ex)
+
+dnl The following include must precede multilib.m4 and is only
 dnl needed with avr-gcc v4.9 or older, namely if !HAS_DEV_LIB.
 m4_include([devlist.m4])
 
@@ -691,6 +703,7 @@ AC_CONFIG_FILES([
 	include/avr/Makefile
 	include/avr/builtins.h
 	include/bits/Makefile
+	include/bits/devinfo.h
 	include/compat/Makefile
 	include/util/Makefile
 	include/util/delay.h
@@ -704,6 +717,7 @@ AC_CONFIG_FILES([
 	libc/time/Makefile
 	libm/Makefile
 	libm/fplib/Makefile
+	libm/fxlib/Makefile
 	scripts/Makefile
 	devtools/Makefile
 ])
