@@ -80,7 +80,8 @@ stdlib_a_asm_sources = \
 	tolower.S \
 	toupper.S \
 	ulrdivi.S \
-	urdivi.S
+	urdivi.S \
+	sqrtfx.S
 
 stdlib_a_extra_dist = \
 	ctype.S \
