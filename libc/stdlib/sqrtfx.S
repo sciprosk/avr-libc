@@ -65,7 +65,7 @@ ENDFUNC
 #undef arg_hi
 
 /*
- * Square root of a 8-bit unsigned fract.
+ * Square root of 8-bit unsigned fract.
 */
 
 #define res_hi r25
@@ -77,9 +77,23 @@ ENDFUNC
 	.type   _U(__avr_libc_sqrtfxhur), "function"
 	.global _U(__avr_libc_sqrtfxhur)
 _U(__avr_libc_sqrtfxhur):
-	mov  res_hi, res_lo       ; reinterpret short fract as uint16_t
+	mov  res_hi, res_lo       ; unsigned short fract as uint16_t
 	clr  res_lo
 	XCALL __avr_libc_sqrtfxhi ; take integer square root;
 	ret                       ; return low 8-bit as unsigned fract
 	.size _U(__avr_libc_sqrtfxhur), . - _U(__avr_libc_sqrtfxhur)
 ;ENDFUNC
+
+/*
+ * Square root of 8-bit signed fract.
+*/
+	.type   _U(__avr_libc_sqrtfxhr), "function"
+	.global _U(__avr_libc_sqrtfxhr)
+_U(__avr_libc_sqrtfxhr):
+	mov  res_hi, res_lo       ; short fract as uint16_t
+	lsl  res_hi               ; shift out sign bit
+	clr  res_lo               ; clear low 8-bits
+	XCALL __avr_libc_sqrtfxhi ; take integer square root
+	lsr  res_lo               ; shift sign bit back for signed short fract
+	ret
+	.size _U(__avr_libc_sqrtfxhr), . - _U(__avr_libc_sqrtfxhr)
