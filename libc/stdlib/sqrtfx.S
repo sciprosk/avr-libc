@@ -1,5 +1,15 @@
 #include "asmdef.h"
 
+/*
+ * Implementation of the "Fast Integer Square Root" algorithm for AVR.
+ * See Ross M. Folsler, DS91040A, Microchip Technology (2000).
+ * https://ww1.microchip.com/downloads/en/AppNotes/91040a.pdf
+*/
+
+/*
+ * Integer part of a square root from a 16-bit unsigned integer.
+*/
+
 #define arg_hi  r25
 #define arg_lo  r24
 #define res_hi  r23
@@ -45,3 +55,31 @@ ENTRY    __avr_libc_sqrtfxhi
 	clr  __zero_reg__
 	ret
 ENDFUNC
+
+#undef prod_lo
+#undef prod_hi
+#undef cbit
+#undef res_lo
+#undef res_hi
+#undef arg_lo
+#undef arg_hi
+
+/*
+ * Square root of a 8-bit unsigned fract.
+*/
+
+#define res_hi r25
+#define res_lo r24
+
+;FUNCTION __avr_libc_sqrtfxur
+;ENTRY    __avr_libc_sqrtfxur
+	ASSEMBLY_CLIB_SECTION
+	.type   _U(__avr_libc_sqrtfxhur), "function"
+	.global _U(__avr_libc_sqrtfxhur)
+_U(__avr_libc_sqrtfxhur):
+	mov  res_hi, res_lo       ; reinterpret short fract as uint16_t
+	clr  res_lo
+	XCALL __avr_libc_sqrtfxhi ; take integer square root;
+	ret                       ; return low 8-bit as unsigned fract
+	.size _U(__avr_libc_sqrtfxhur), . - _U(__avr_libc_sqrtfxhur)
+;ENDFUNC
